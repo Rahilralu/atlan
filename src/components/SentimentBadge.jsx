@@ -2,7 +2,7 @@ import React from "react";
 
 const SentimentBadge = ({ sentiment }) => {
   const colors = {
-    curious: "bg-yellow-400 text-black",
+    curious: "bg-yellow-400 text-white",
     angry: "bg-red-500 text-white",
     neutral: "bg-gray-300 text-black",
   };
