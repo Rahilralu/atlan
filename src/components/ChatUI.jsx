@@ -43,7 +43,7 @@ export default function ChatUI({ setChatOpen }) {
 
   return (
     <div
-  className="fixed bottom-18 left-4 bg-white rounded-2xl flex flex-col w-[380px] h-[448px] box-border"
+  className="fixed bottom-18 left-11 bg-white rounded-2xl flex flex-col w-[380px] h-[448px] box-border"
   style={{
     boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", 
   }}

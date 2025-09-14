@@ -7,8 +7,6 @@ const ViewBackendButton = () => {
   const handleButtonClick = () => setShowTerminal(true);
   const closeTerminal = () => setShowTerminal(false);
 
-
-
   return (
     <>
       <button
