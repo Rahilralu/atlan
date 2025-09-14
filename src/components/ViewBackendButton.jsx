@@ -2,18 +2,10 @@ import React, { useState } from "react";
 
 const ViewBackendButton = () => {
   const [showTerminal, setShowTerminal] = useState(false);
-  const [logs, setLogs] = useState(["Terminal opened!"]);
-  const [input, setInput] = useState("");
+  const [logs] = useState(["Terminal opened!"]);
 
   const handleButtonClick = () => setShowTerminal(true);
   const closeTerminal = () => setShowTerminal(false);
-
-  const handleSend = () => {
-    if (input.trim() !== "") {
-      setLogs((prev) => [...prev, input]);
-      setInput("");
-    }
-  };
 
   return (
     <>
@@ -40,22 +32,7 @@ const ViewBackendButton = () => {
               ))}
             </div>
 
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                className="flex-1 bg-gray-900 text-green-400 border border-gray-700 rounded px-2 py-1 font-mono focus:outline-none text-sm"
-                placeholder="Type your command..."
-              />
-              <button
-                onClick={handleSend}
-                className="px-3 py-1 bg-gray-800 rounded hover:bg-gray-700 text-white text-sm"
-              >
-                Send
-              </button>
-            </div>
+           
           </div>
         </div>
       )}
