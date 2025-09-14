@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function ChatUI({ }) {
+export default function ChatUI({ setChatOpen }) {
   const [messages, setMessages] = useState([
     { text: "Hi! 👋 How can I help you today?", sender: "ai" },
   ]);
@@ -42,9 +42,22 @@ export default function ChatUI({ }) {
   }, [messages, typing]);
 
   return (
-    <div className="h-[520px] mt-[75px] bg-white border-l shadow-lg flex flex-col">
+    <div
+  className="fixed bottom-18 left-4 bg-white rounded-2xl flex flex-col w-[380px] h-[448px] box-border"
+  style={{
+    boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", 
+  }}
+>
+
       <div className="flex items-center justify-between px-4 py-3 border-b">
         <div className="text-lg font-semibold text-blue-600">Chat Bot</div>
+        <button
+          onClick={() => setChatOpen(false)}
+          aria-label="Close chat"
+          className="w-7 h-7 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+        >
+          ✕
+        </button>
       </div>
 
       <div className="flex-1 p-3 overflow-y-auto">
@@ -74,22 +87,22 @@ export default function ChatUI({ }) {
             </div>
           </div>
         )}
-
         <div ref={chatEndRef} />
       </div>
+
       <div className="p-3 border-t">
-        <div className="flex items-center bg-white border rounded-full px-3 py-1">
+        <div className="flex items-center bg-white border rounded-full px-2 py-1">
           <input
             type="text"
-            className="flex-1 bg-transparent px-2 py-2 text-black placeholder-gray-500 outline-none"
-            placeholder="Type your Message"
+            className="flex-1 bg-transparent px-2 py-1 text-sm text-black placeholder-gray-500 outline-none"
+            placeholder="Type your message..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
           />
           <button
             onClick={handleSend}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white p-2 rounded-full ml-2"
+            className="w-8 h-8 flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white rounded-full ml-1 transition-colors text-sm"
             aria-label="Send message"
           >
             ➤
